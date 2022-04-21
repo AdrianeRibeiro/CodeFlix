@@ -46,4 +46,5 @@ func NewAccount(bank *Bank, number string, ownerName string) (*Account, error) {
 	if err != nil {
 		return &account, nil
 	}
+	return &account, nil
 }

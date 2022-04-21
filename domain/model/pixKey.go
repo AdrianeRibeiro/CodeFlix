@@ -1,11 +1,11 @@
 package model
 
 import (
+	"errors"
 	"time"
 
 	"github.com/asaskevich/govalidator"
 	uuid "github.com/satori/go.uuid"
-	"errors"
 )
 
 type PixKeyRepositoryInterface interface {
@@ -65,4 +65,5 @@ func NewPixKey(kind string, account *Account, key string) (*PixKey, error) {
 	if err != nil {
 		return &pixKey, nil
 	}
+	return &pixKey, nil
 }

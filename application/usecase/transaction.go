@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/codeedu/imersao/codepix-go/domain/model"
+	"github.com/AdrianeRibeiro/CodePix/domain/model"
 )
 
 type TransactionUseCase struct {
@@ -24,7 +24,7 @@ func (t *TransactionUseCase) Register(accountId string, amount float64, pixKeyto
 		return nil, err
 	}
 
-	transaction, err := model.NewTransaction(account, amount, pixKey, description, id)
+	transaction, err := model.NewTransaction(account, amount, pixkey, description, id)
 	if err != nil {
 		return nil, err
 	}

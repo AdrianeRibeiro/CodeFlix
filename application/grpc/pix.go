@@ -3,8 +3,8 @@ package grpc
 import (
 	"context"
 
-	"github.com/codeedu/imersao/codepix-go/application/grpc/pb"
-	"github.com/codeedu/imersao/codepix-go/application/usecase"
+	"github.com/AdrianeRibeiro/CodePix/application/grpc/pb"
+	"github.com/AdrianeRibeiro/CodePix/application/usecase"
 )
 
 type PixGrpcService struct {
@@ -35,24 +35,24 @@ func (p *PixGrpcService) Find(ctx context.Context, in *pb.PixKey) (*pb.PixKeyInf
 		return &pb.PixKeyInfo{}, err
 	}
 
-	return &pb.PixKeyInfo {
-		Id:        pixKey.ID,
-		Kind:      pixKey.Kind,
-		Key:       pixKey.Key,
-		Account:   &pb.Account {
-			AccountId:     pixKey.AccountID,
-			AccountNumber: pixKey.Account.Number,
-			BankId:        pixKey.Account.BankID,
-			BankName:      pixKey.Account.Bank.Name,
-			OwnerName:     pixKey.Account.OwnerName,
-			CreatedAt:     pixKey.Account.CreatedAt.String(),
+	return &pb.PixKeyInfo{
+		Id:   pixkey.ID,
+		Kind: pixkey.Kind,
+		Key:  pixkey.Key,
+		Account: &pb.Account{
+			AccountId:     pixkey.AccountID,
+			AccountNumber: pixkey.Account.Number,
+			BankId:        pixkey.Account.BankID,
+			BankName:      pixkey.Account.Bank.Name,
+			OwnerName:     pixkey.Account.OwnerName,
+			CreatedAt:     pixkey.Account.CreatedAt.String(),
 		},
-		CreatedAt: pixKey.CreatedAt.String(),
+		CreatedAt: pixkey.CreatedAt.String(),
 	}, nil
 }
 
 func NewPixGrpcService(usecase usecase.PixUseCase) *PixGrpcService {
 	return &PixGrpcService{
-		PixUseCase: usecase
+		PixUseCase: usecase,
 	}
 }

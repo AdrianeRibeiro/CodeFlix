@@ -3,7 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/codeedu/imersao/codepix-go/infrastructure/grpc"
+	"github.com/AdrianeRibeiro/CodePix/application/grpc"
+	"github.com/AdrianeRibeiro/CodePix/infrastructure/db"
 	"gorm.io/gorm"
 )
 
