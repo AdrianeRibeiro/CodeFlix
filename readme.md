@@ -6,6 +6,11 @@ sudo docker-compose up
 # abrir o terminal do docker
 sudo docker-compose exec app /bin/bash
 
+# instalar/atualizar pacotes
 go mod tidy
+
+# rodar main
 go run cmd/main.go -> sobe e cria as tabelas
-1:37
+
+
+bash do docker -> evans -r repl ->  call RegisterPixKey

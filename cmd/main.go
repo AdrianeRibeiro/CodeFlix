@@ -5,12 +5,12 @@ import (
 
 	"github.com/AdrianeRibeiro/CodePix/application/grpc"
 	"github.com/AdrianeRibeiro/CodePix/infrastructure/db"
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 var database *gorm.DB
 
 func main() {
-	database = db.ConnectDb(os.Getenv("env"))
+	database = db.ConnectDB(os.Getenv("env"))
 	grpc.StartGrpcServer(database, 50051)
 }

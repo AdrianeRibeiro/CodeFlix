@@ -35,7 +35,7 @@ func (r PixKeyRepositoryDb) RegisterKey(pixkey *model.PixKey) (*model.PixKey, er
 	err := r.Db.Create(pixkey).Error
 
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	return pixkey, nil
@@ -43,13 +43,13 @@ func (r PixKeyRepositoryDb) RegisterKey(pixkey *model.PixKey) (*model.PixKey, er
 
 func (r PixKeyRepositoryDb) FindKeyByKind(key string, kind string) (*model.PixKey, error) {
 	var pixKey model.PixKey
-	r.Db.Preload("Account.Bank").First(&pixkey, "kind = ? and Key = ?", kind, key)
+	r.Db.Preload("Account.Bank").First(&pixKey, "kind = ? and Key = ?", kind, key)
 
 	if pixKey.ID == "" {
 		return nil, fmt.Errorf("no key was found")
 	}
 
-	return &pixkey, nil
+	return &pixKey, nil
 }
 
 func (r PixKeyRepositoryDb) FindAccount(id string) (*model.Account, error) {
