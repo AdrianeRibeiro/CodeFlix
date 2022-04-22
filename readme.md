@@ -14,3 +14,5 @@ go run cmd/main.go -> sobe e cria as tabelas
 
 
 bash do docker -> evans -r repl ->  call RegisterPixKey
+
+kafka-topics --list --bootstrap-server=localhost:9092
