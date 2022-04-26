@@ -23,4 +23,4 @@ terminal do kafka
 terminal da aplicação
 root@f8a20ee43244:/go/src# go run main.go kafka
 
-55min
+1:40min
